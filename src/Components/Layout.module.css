@@ -1,0 +1,56 @@
+.success{
+    color: rgb(80, 141, 194);
+}
+.lineStyle{
+    width: 500px;
+}
+.layoutBorder{
+    width:800px;
+    border-radius: 20px;
+    border-color: rgb(80, 141, 194);
+    border-width: 2px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 350px;
+}
+.buttonStyle{
+    background-color: rgb(85, 132, 173);
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    margin-left: 20px;
+    align-items: right;
+    color: azure;
+    
+}
+
+.inputStyle{
+    width: 400px;
+    height: 30px;
+    border-radius: 20px;
+    border-color: rgb(85, 132, 173);
+    padding: 0px;
+    padding-left: 12px;
+    
+}
+.inputStyle:focus{
+    outline: none;
+    
+    align-items: center;
+}
+
+.taskStyle{
+    width: 400px;
+    background-color: rgb(85, 132, 173);
+    color: azure;
+    border-radius: 20px;
+    height: 30px;
+    padding: 3px;
+    
+}
+.alignThem{
+    display: flex;
+    margin-left: 130px;
+    margin-bottom: 10px;
+}

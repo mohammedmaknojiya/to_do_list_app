@@ -7,31 +7,42 @@ import TaskList1 from './TaskList1';
 const getLocalItems = () => {
     let list = localStorage.getItem('todolist');
     if (list) {
-        return JSON.parse(localStorage.getItem('todolist'));
+        const value = JSON.parse(localStorage.getItem('todolist')|| '[]');
+        return value
     } else {
         return []
     }
 };
 
+
+ interface objArr {
+        id: string;
+        message: string;
+      }[];
+    
+interface itemType{
+    allTask: {id:string,message:String}[] | null
+}
 const Layout1 = () =>{
 
-    const items = { allTask:[]}
+    const items:itemType = { allTask:[]}
 
     const [todoList,setToDoList] = useState(getLocalItems);
+    console.log(todoList)
 
-    const addTask = (userInput) => {
-        let copy = [...todoList];
+    const addTask = (userInput:String) => {
+        let copy:{}[] = [...todoList];
         copy = [...copy, { id: todoList.length + 1, message: userInput }];
         setToDoList(copy);
         console.log(copy);
         localStorage.setItem('todolist',JSON.stringify(copy));
       }
 
-    const removeTask = (id) =>
+    const removeTask = (id:String|number) =>
     {
         console.log(id)
         //console.log(prevList)
-        const myArray = todoList.filter((obj)=> {
+        const myArray = todoList.filter((obj:{id:String|number,message:String})=> {
             return obj.id !== id;
           });
           //console.log(myArray,prevList);
@@ -42,7 +53,7 @@ const Layout1 = () =>{
         
     }
      
-    const task_List = todoList.map( (task,index) => <TaskList1 key={index} taskList={task}  removeTask={removeTask}/> );    
+    const task_List = todoList.map( (task:{id:String|number ;message:String},index:number) => <TaskList1 key={index} taskList={task}  removeTask={removeTask}/> );    
     //console.log(task_List)
     return(
         <>
@@ -61,5 +72,8 @@ const Layout1 = () =>{
         </>
     )
 }
+
+
+
 
 export default Layout1;

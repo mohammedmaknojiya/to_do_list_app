@@ -1,12 +1,12 @@
+import React from "react"
 import './App.css';
 import Layout1 from './Components/Layout1';
 
 
-function App() {
+const App = ():JSX.Element=> {
   return (
     <div className="App">
-      <Layout1/>
-      
+      <Layout1/>     
     </div>
   );
 }

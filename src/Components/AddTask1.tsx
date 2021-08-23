@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
 import styles from './Layout.module.css'
 
-const AddTask1 = ({addTask}) =>{
+interface AddTaskProps{
+    addTask : (userInput:String) => void
+}
+
+const AddTask1 = ({addTask}:AddTaskProps) =>{
     const [userInput, setUserInput] = useState('');
 
-    const handleChange = (e) => {
+    const handleChange:React.ChangeEventHandler<HTMLInputElement> | undefined = (e) => {
         setUserInput(e.currentTarget.value)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit: React.FormEventHandler<HTMLFormElement> | undefined = (e) => {
         e.preventDefault();
         addTask(userInput);
         setUserInput("");

@@ -14,21 +14,16 @@ const getLocalItems = () => {
     }
 };
 
-
- interface objArr {
-        id: string;
-        message: string;
-      }[];
     
-interface itemType{
-    allTask: {id:string,message:String}[] | null
-}
+// interface itemType{
+//     allTask: {id:string,message:String}[] | null
+// }
 const Layout1 = () =>{
 
-    const items:itemType = { allTask:[]}
+   // const items:itemType = { allTask:[]}
 
     const [todoList,setToDoList] = useState(getLocalItems);
-    console.log(todoList)
+   
 
     const addTask = (userInput:String) => {
         let copy:{}[] = [...todoList];
@@ -60,7 +55,7 @@ const Layout1 = () =>{
         <div className={styles.layoutBorder}>
             <h1 className={styles.success}>To Do List </h1>
             <hr className={`${styles.success} ${styles.lineStyle}`}/>
-            <AddTask1 addTask={addTask} listTask={items.allTask} />
+            <AddTask1 addTask={addTask}  />
             <div>
                 <h1 className={styles.success}>All Remaining Tasks</h1>
                 {task_List}

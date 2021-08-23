@@ -1,13 +1,21 @@
-import React from 'react';
 import styles from './Layout.module.css';
 
-const TaskList1 = ({taskList,removeTask}) =>{
+
+interface TaskListProps{
+    taskList:{
+        id: String| number;
+        message: String
+    },
+    removeTask: (id:String|number) => void
+}
+
+const TaskList1 = ({taskList,removeTask}:TaskListProps):JSX.Element =>{
     // const [prevList,removeItem] = useState(taskList);
     // console.log(prevList)
 
     return(
         
-        <div key={taskList.id} className={styles.alignThem} >
+        <div className={styles.alignThem} >
             <div className={styles.taskStyle}>
                 I am with id {taskList.id} and with message {taskList.message}
             </div>
